@@ -1,6 +1,6 @@
 {
   "name": "@dinedrop/shared",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "A npm package to distribute shared code between DineDrop services.",
   "main": "./lib/index.js",
   "files": [

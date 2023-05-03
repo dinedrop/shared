@@ -3,7 +3,7 @@
 import { Request, Response } from 'express';
 import morgan from 'morgan';
 
-import config from '../config/config';
+import config from '../config';
 import logger from './logger';
 
 morgan.token(

@@ -1,1 +1,3 @@
-export const myPackage = (taco = ''): string => `${taco} from my package`;
+import { logger, morgan } from './logger';
+
+export { logger, morgan };

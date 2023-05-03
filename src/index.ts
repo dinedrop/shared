@@ -1,6 +1,7 @@
 import { logger, morgan } from './logger';
 import { ApiError, errorConverter, errorHandler } from './errors';
 import { catchAsync, pick, authLimiter } from './utils';
+import { paginate, paginateTypes } from './paginate';
 import { toJSON } from './toJSON';
 
 export {
@@ -13,4 +14,6 @@ export {
   pick,
   authLimiter,
   toJSON,
+  paginate,
+  paginateTypes,
 };

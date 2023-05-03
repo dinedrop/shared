@@ -1,5 +1,5 @@
 {
-  "name": "dine-drop-common",
+  "name": "@dinedrop/shared",
   "version": "0.0.0",
   "description": "A npm package to distribute shared code between DineDrop services.",
   "main": "./lib/index.js",
@@ -18,20 +18,23 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/dinedrop/shared"
   },
   "license": "MIT",
   "author": {
     "name": "Rhythm Shandlya",
     "email": "armaanbgp@gmail.com",
-    "url": ""
+    "url": "https://github.com/rhythmshandlya"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "engines": {
     "node": ">=12.0"
   },
   "keywords": [],
   "bugs": {
-    "url": ""
+    "url": "https://github.com/dinedrop/shared"
   },
   "homepage": "",
   "devDependencies": {

@@ -4,6 +4,7 @@ import { catchAsync, pick, authLimiter } from './utils';
 import { paginate, paginateTypes, QueryResult, IOptions } from './paginate';
 import { toJSON } from './toJSON';
 import auth from './auth/auth.middleware';
+import { roles } from './config/roles';
 import { objectId, password, validate } from './validate';
 
 export {
@@ -24,4 +25,5 @@ export {
   objectId,
   password,
   validate,
+  roles,
 };

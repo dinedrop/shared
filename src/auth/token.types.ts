@@ -1,6 +1,13 @@
 import { JwtPayload } from 'jsonwebtoken';
 import { Document, Model } from 'mongoose';
 
+export const tokenTypes = {
+  ACCESS: 'access',
+  REFRESH: 'refresh',
+  RESET_PASSWORD: 'resetPassword',
+  VERIFY_EMAIL: 'verifyEmail',
+};
+
 export interface IToken {
   token: string;
   user: string;

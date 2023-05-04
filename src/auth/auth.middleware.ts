@@ -6,6 +6,13 @@ import passport from 'passport';
 import { roleRights } from '../config/roles';
 import { ApiError } from '../errors';
 import { IUserDoc } from './auth.types';
+import { ExtractJwt, Strategy as JwtStrategy } from 'passport-jwt';
+import { config } from '../config';
+
+const jwtOptions = {
+  secretOrKey: config.jwt.secret,
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+};
 
 const verifyCallback =
   (req: Request, resolve: any, reject: any, requiredRights: string[]) =>
@@ -30,6 +37,19 @@ const verifyCallback =
     }
     resolve();
   };
+
+const jwtVerify = async (payload: any, done: any) => {
+  try {
+    if (!payload.sub) {
+      return done(null, false);
+    }
+    return done(null, { id: payload.sub });
+  } catch (error) {
+    return done(error, false);
+  }
+};
+
+passport.use(new JwtStrategy(jwtOptions, jwtVerify));
 
 const authMiddleware =
   (...requiredRights: string[]) =>

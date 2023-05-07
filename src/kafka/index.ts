@@ -1,4 +1,4 @@
-import KafkaConsumer from './consumer';
-import KafkaProducer from './producer';
+import { KafkaConsumer, TopicHandler } from './consumer';
+import { KafkaProducer, ProducerConfig } from './producer';
 
-export { KafkaConsumer, KafkaProducer };
+export { KafkaConsumer, KafkaProducer, ProducerConfig, TopicHandler };

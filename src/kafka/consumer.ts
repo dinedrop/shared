@@ -49,4 +49,4 @@ class KafkaConsumer {
   }
 }
 
-export default KafkaConsumer;
+export { KafkaConsumer, TopicHandler };

@@ -14,7 +14,8 @@
     "semantic-release": "semantic-release",
     "test:watch": "jest --watch",
     "test": "jest --coverage",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "all": "git add . && git commit -m \"version-patch-quick\" && npm run clean && npm run build && npm version patch && npm publish"
   },
   "repository": {
     "type": "git",

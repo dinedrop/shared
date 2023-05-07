@@ -6,6 +6,7 @@ import { toJSON } from './toJSON';
 import auth from './auth/auth.middleware';
 import { roles } from './config/roles';
 import { objectId, password, validate } from './validate';
+import { KafkaConsumer, KafkaProducer } from './kafka';
 
 export {
   logger,
@@ -26,4 +27,6 @@ export {
   password,
   validate,
   roles,
+  KafkaConsumer,
+  KafkaProducer,
 };

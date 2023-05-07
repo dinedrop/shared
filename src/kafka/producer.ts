@@ -41,10 +41,7 @@ class KafkaProducer {
 
     await (
       this.producer as {
-        send(args: {
-          topic: string;
-          messages: Array<{ value: string }>;
-        }): Promise<void>;
+        send(args: { topic: string; messages: Array<{ value: string }> }): Promise<void>;
       }
     ).send({
       topic,

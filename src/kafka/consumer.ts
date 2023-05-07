@@ -4,7 +4,7 @@ interface TopicHandler {
   [topic: string]: (payload: KafkaMessage) => Promise<void>;
 }
 
-export class KafkaConsumer {
+class KafkaConsumer {
   private kafka: Kafka;
   private consumer: Consumer;
   private topicHandlers: TopicHandler;
@@ -48,3 +48,5 @@ export class KafkaConsumer {
     });
   }
 }
+
+export default KafkaConsumer;

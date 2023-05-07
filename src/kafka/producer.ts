@@ -1,4 +1,4 @@
-import { Kafka } from 'kafkajs';
+import { Kafka, Partitioners } from 'kafkajs';
 
 interface ProducerConfig {
   clientId: string;
@@ -24,6 +24,7 @@ class KafkaProducer {
     this.producer = kafka.producer({
       maxInFlightRequests: this.config.maxInFlightRequests || 1,
       idempotent: this.config.idempotent ?? true,
+      createPartitioner: Partitioners.DefaultPartitioner,
     });
 
     await (this.producer as { connect(): Promise<void> }).connect();

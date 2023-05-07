@@ -1,5 +1,10 @@
 import { Kafka, Consumer, KafkaMessage } from 'kafkajs';
 
+interface ConsumerConfig {
+  brokers: string[];
+  groupId: string;
+}
+
 interface TopicHandler {
   [topic: string]: (payload: KafkaMessage) => Promise<void>;
 }
@@ -9,9 +14,9 @@ class KafkaConsumer {
   private consumer: Consumer;
   private topicHandlers: TopicHandler;
 
-  constructor(brokers: string[], groupId: string) {
-    this.kafka = new Kafka({ brokers });
-    this.consumer = this.kafka.consumer({ groupId });
+  constructor(private config: ConsumerConfig) {
+    this.kafka = new Kafka({ brokers: config.brokers });
+    this.consumer = this.kafka.consumer({ groupId: config.groupId });
     this.topicHandlers = {};
   }
 
@@ -49,4 +54,4 @@ class KafkaConsumer {
   }
 }
 
-export { KafkaConsumer, TopicHandler };
+export { KafkaConsumer, ConsumerConfig, TopicHandler };

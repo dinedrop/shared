@@ -7,6 +7,7 @@ import auth from './auth/auth.middleware';
 import { roles } from './config/roles';
 import { objectId, password, validate } from './validate';
 import getSwagger from './swagger/swagger.definition';
+import { IUserRequest } from './auth/auth.types';
 import {
   KafkaConsumer,
   KafkaProducer,
@@ -40,4 +41,5 @@ export {
   TopicHandler,
   ConsumerConfig,
   getSwagger,
+  IUserRequest,
 };

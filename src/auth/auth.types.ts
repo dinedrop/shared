@@ -1,3 +1,4 @@
+import { Request } from 'express';
 import mongoose, { Document, Model } from 'mongoose';
 
 import { QueryResult } from '../paginate';
@@ -11,19 +12,20 @@ export interface IUser {
   isEmailVerified: boolean;
 }
 
+export interface IUserRequest extends Request {
+  user: {
+    _id: mongoose.Schema.Types.ObjectId;
+    role: string;
+  };
+}
+
 export interface IUserDoc extends IUser, Document {
   isPasswordMatch(password: string): Promise<boolean>;
 }
 
 export interface IUserModel extends Model<IUserDoc> {
-  isEmailTaken(
-    email: string,
-    excludeUserId?: mongoose.Types.ObjectId
-  ): Promise<boolean>;
-  paginate(
-    filter: Record<string, any>,
-    options: Record<string, any>
-  ): Promise<QueryResult>;
+  isEmailTaken(email: string, excludeUserId?: mongoose.Types.ObjectId): Promise<boolean>;
+  paginate(filter: Record<string, any>, options: Record<string, any>): Promise<QueryResult>;
 }
 
 export type UpdateUserBody = Partial<IUser>;

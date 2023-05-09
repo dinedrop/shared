@@ -6,6 +6,7 @@ import { toJSON } from './toJSON';
 import auth from './auth/auth.middleware';
 import { roles } from './config/roles';
 import { objectId, password, validate } from './validate';
+import getSwagger from './swagger/swagger.definition';
 import {
   KafkaConsumer,
   KafkaProducer,
@@ -38,4 +39,5 @@ export {
   ProducerConfig,
   TopicHandler,
   ConsumerConfig,
+  getSwagger,
 };
